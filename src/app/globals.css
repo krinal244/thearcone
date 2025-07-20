@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* === Navbar anchor link styles === */
+a[href^="#"] {
+  color: black;
+  transition: color 0.3s ease;
+  text-decoration: none; /* optional */
+}
+
+a[href^="#"]:hover {
+  color: white;
+}
+
+.glow-text {
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-shadow:
+    0 0 2px #fff5e1,
+    0 0 4px #fff5e1,
+    0 0 6px #fff5e1;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.glow-text:hover {
+  text-shadow:
+    0 0 5px #fff5e1,
+    0 0 10px #fff5e1,
+    0 0 20px #fff5e1,
+    0 0 40px #fff5e1;
+}
