@@ -57,3 +57,18 @@ a[href^="#"]:hover {
     0 0 20px #fff5e1,
     0 0 40px #fff5e1;
 }
+
+
+.animated-gradient-text {
+  background: linear-gradient(90deg, #00ffe0, #00b3ff, #00ffe0);
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow 6s ease infinite;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

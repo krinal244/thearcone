@@ -1,52 +1,59 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
-const points = [
+const cards = [
   {
-    title: "Custom-Tailored Designs",
-    description: "We build from scratch, exactly as your brand demands — no templates, no shortcuts.",
+    title: "Pixel Perfect Design",
+    description:
+      "Every element is meticulously crafted to match your brand's voice. Our designs look stunning on all screen sizes with precise UI detailing.",
+    icon: "🎨",
   },
   {
-    title: "One-on-One Support",
-    description: "Direct communication with the dev working on your project — zero miscommunication.",
+    title: "Latest Tech Stack",
+    description:
+      "We use modern technologies like Next.js, Tailwind, and Framer Motion to deliver high-performance, scalable websites that impress.",
+    icon: "🚀",
   },
   {
-    title: "Modern Stack, Fast Delivery",
-    description: "We use Next.js, Tailwind, Framer Motion & 3D libraries for blazing-fast, stunning websites.",
+    title: "Client-First Approach",
+    description:
+      "We prioritize your goals, offer continuous updates, and ensure complete satisfaction with every milestone of the project.",
+    icon: "🤝",
   },
 ];
 
-export default function WhyUsSection() {
+export default function WhyChooseUs() {
+  const [active, setActive] = useState(null);
+
   return (
-    <section className="relative z-10 bg-[#0e0e0f] py-28 px-6 md:px-20 text-white overflow-hidden">
-      {/* Glowing background lines */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle,rgba(0,255,234,0.3)_0%,transparent_60%)] blur-2xl" />
+    <section
+      id="why-us"
+      className="w-full bg-[#0f0f10] text-white py-20 px-6 md:px-20"
+    >
+      <h2 className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-r from-[#00ffe0] via-pink-400 to-purple-500 bg-clip-text text-transparent mb-12">
+        Why Choose Us
+      </h2>
 
-      <motion.h2
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-center text-4xl md:text-5xl font-bold mb-16 uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-[#00ffe0] via-[#a855f7] to-[#00ffe0]"
-      >
-        Why Choose TheArcone?
-      </motion.h2>
-
-      <div className="grid md:grid-cols-3 gap-10">
-        {points.map((point, idx) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {cards.map((card, index) => (
           <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: idx * 0.2 }}
-            viewport={{ once: true }}
-            className="group bg-[#16181d] border border-[#2e2e32] p-6 rounded-2xl hover:shadow-xl hover:shadow-[#00ffe0]/20 transition-all duration-300 hover:-translate-y-2"
+            key={index}
+            onClick={() => setActive(index === active ? null : index)}
+            className={`cursor-pointer rounded-2xl border border-[#00ffe0] p-6 flex flex-col items-center justify-start transition-all duration-300 text-center ${
+              active === index
+                ? "bg-[#1a1a1d] scale-105 shadow-2xl"
+                : "bg-[#121212] hover:scale-105 hover:shadow-xl"
+            }`}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
-            <h3 className="text-2xl font-semibold mb-2 text-[#00ffe0] group-hover:underline">
-              {point.title}
+            <div className="text-4xl mb-4">{card.icon}</div>
+            <h3 className="text-xl font-semibold mb-2 text-[#00ffe0]">
+              {card.title}
             </h3>
-            <p className="text-gray-400 text-sm leading-relaxed">{point.description}</p>
+            <p className="text-gray-300">{card.description}</p>
           </motion.div>
         ))}
       </div>

@@ -74,8 +74,8 @@ export default function ContactSection() {
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500"></div>
           <img
-            // src="/con.jpg"
-            src=""
+            
+            src="contact.jpg"
             alt="Contact"
             className="w-full h-auto rounded-3xl shadow-2xl object-cover relative z-10"
           />

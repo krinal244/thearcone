@@ -20,7 +20,8 @@ export function NavbarDemo() {
     { name: "About Us", link: "#about-us" },
     { name: "Features", link: "#features" },
     { name: "Projects", link: "#projects" },
-    { name: "Why Us", link: "#why-us" }, // OR "Testimonials"
+    { name: "Why Us", link: "#why-us" }, 
+     { name: "Testimonials", link: "#testimonials" },
     { name: "Contact Us", link: "#contact" },
   ];
 
